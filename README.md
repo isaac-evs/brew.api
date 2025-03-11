@@ -1,2 +1,2 @@
-# brew.api
-Coffe Shop business solution API Rest developed using FastAPI and cloud technologies 
+# commerce.api
+commcerce solution API Rest developed using FastAPI and cloud technologies 
