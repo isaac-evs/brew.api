@@ -14,4 +14,4 @@ class SalesNoteContent(SalesNoteContentBase):
     sales_note_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True

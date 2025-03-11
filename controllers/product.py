@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.product import Product
-from app.schemas.product import ProductCreate, Product as ProductSchema
+from models.product import Product
+from schemas.product import ProductCreate, Product as ProductSchema
 
 class ProductController:
     @staticmethod

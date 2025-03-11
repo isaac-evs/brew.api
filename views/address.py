@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
-from app.models import get_db
-from app.schemas.address import Address, AddressCreate
-from app.controllers.address import AddressController
+from models import get_db
+from schemas.address import Address, AddressCreate
+from controllers.address import AddressController
 
 router = APIRouter(prefix="/addresses", tags=["addresses"])
 

@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from app.models.customer import Customer
-from app.schemas.customer import CustomerCreate, Customer as CustomerSchema
+from models.customer import Customer
+from schemas.customer import CustomerCreate, Customer as CustomerSchema
 
 class CustomerController:
     @staticmethod

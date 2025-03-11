@@ -1,7 +1,7 @@
 from operator import add
 from sqlalchemy.orm import Session
-from app.models.address import Address
-from app.schemas.address import AddressCreate, Address as AddressSchema
+from models.address import Address
+from schemas.address import AddressCreate, Address as AddressSchema
 
 class AddressController:
 

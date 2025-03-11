@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from sqlalchemy.orm import Session
 from typing import List
-from app.models import get_db
-from app.schemas.sales_note import SalesNote, SalesNoteCreate
-from app.controllers.sales_note import SalesNoteController
+from models import get_db
+from schemas.sales_note import SalesNote, SalesNoteCreate
+from controllers.sales_note import SalesNoteController
 
 router = APIRouter(prefix="/sales-notes", tags=["sales-notes"])
 

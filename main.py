@@ -1,42 +1,29 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+from views import customer, address, product, sales_note
+from models import Base, engine
 
-class Item(BaseModel):
-    name: str
-    description: str | None = None
-    price: float
-    tax: float | None = None
+Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+app = FastAPI(title="Brew.api", description="API for managing coffe sales")
 
-items = []
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-# --- Endpoints --- #
+app.include_router(customer.router)
+app.include_router(address.router)
+app.include_router(product.router)
+app.include_router(sales_note.router)
 
 @app.get("/")
-async def read_root():
-    return {"message: " "Welcome to my API!"}
+def read_root():
+    return {"message": "API works!"}
 
-@app.get("/items/")
-async def read_items():
-    return items
-
-@app.post("/items/")
-async def create_items(item: Item):
-
-    global item_id_counter
-    item_id_counter += 1
-
-    item_dict = item.dict()
-    item_dict["id"] = item_id_counter
-    items.append(item_dict)
-
-    return {"message:": "Item created", "item": item_dict}
-
-@app.get("/items/{item_id}")
-async def get_item_by_id(item_id: int):
-
-    for item in items:
-        if item["id"] == item_id:
-            return item
-    return {"error": "Item not found"}
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

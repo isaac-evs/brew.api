@@ -1,15 +1,15 @@
 from sqlalchemy.orm import Session
 import uuid
 from datetime import datetime
-from app.models.sales_note import SalesNote
-from app.models.sales_note_content import SalesNoteContent
-from app.models.customer import Customer
-from app.models.address import Address
-from app.models.product import Product
-from app.schemas.sales_note import SalesNoteCreate, SalesNote as SalesNoteSchema
-from app.services.pdf_service import PDFService
-from app.services.aws_s3 import S3Service
-from app.services.aws_ses import SESService
+from models.sales_note import SalesNote
+from models.sales_note_content import SalesNoteContent
+from models.customer import Customer
+from models.address import Address
+from models.product import Product
+from schemas.sales_note import SalesNoteCreate, SalesNote as SalesNoteSchema
+from services.pdf_service import PDFService
+from services.aws_s3 import S3Service
+from services.aws_ses import SESService
 
 class SalesNoteController:
     @staticmethod

@@ -17,4 +17,4 @@ class SalesNote(SalesNoteBase):
     note_contents: List[SalesNoteContent] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True

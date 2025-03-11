@@ -13,8 +13,11 @@ class AddressBase(BaseModel):
     address_type: AddressType
     customer_id: int
 
+class AddressCreate(AddressBase):
+    pass
+
 class Address(AddressBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
