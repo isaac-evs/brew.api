@@ -59,7 +59,7 @@ class S3Service:
                 Key = file_name,
                 CopySource = copy_source,
                 Metadata = metadata,
-                MetadataDirective = 'Replace'
+                MetadataDirective = 'REPLACE'
             )
             return True
         except ClientError as e:
